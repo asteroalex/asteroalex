@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            margin-top: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: avatar-animation 5s ease-in-out infinite;
+        }
+
+        .nickname {
+            margin-top: 20px;
+            font-size: 36px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: white;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            line-height: 1.5;
+            text-align: center;
+            animation: fade-in 3s ease-in-out;
+        }
+
+        /* Эффект искр */
+        @keyframes sparkles {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: sparkles 1.5s infinite ease-in-out;
+        }
+
+        /* Анимация появления текста */
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes avatar-animation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Стиль для хедлайна */
+        .created-by {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 18px;
+            color: white;
+        }
+
+        .created-by a {
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .created-by a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Аватарка -->
+    <img src="дуров.gif" alt="Profile Picture" class="avatar">
+
+    <!-- Никнейм -->
+    <div class="nickname">
+        Алекс Астеро
+    </div>
+
+    <!-- Информация -->
+    <div class="info">
+        <p><b>CRYPTO</b></p>
+        <p><b>USDT TRC20 -</b> <code>TUFDCRCVNP3256jt1qprQjVrJR2VLGgZ8f</code></p>
+        <p><b>USDT TON -</b> <code>UQAN6e1rz8iZOUY3xtV-BdfWn79VLkneR6w0eciU_cjfTfrD</code></p>
+        <p><b>TON -</b> <code>UQAN6e1rz8iZOUY3xtV-BdfWn79VLkneR6w0eciU_cjfTfrD</code></p>
+        <p><b>ABOUT INFO</b></p>
+        <p>15-year-old programmer, website and Telegram bot creator</p>
+        <p>HTML, CSS, JS, Python</p>
+    </div>
+
+    <!-- Хедлайн "Created by ASTERO" -->
+    <div class="created-by">
+        Created by <a href="https://t.me/asteroalex" target="_blank">ASTERO</a>
+    </div>
+
+    <!-- Скрипт для случайных искр -->
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            
+            // Задаем случайное положение для искры
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.left = Math.random() * 100 + '%';
+
+            // Добавляем искру на страницу
+            document.body.appendChild(sparkle);
+
+            // Удаляем искру через определенное время (анимация исчезает через 1.5 сек)
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1500);
+        }
+
+        // Запускаем создание искр каждые 0.5 секунды
+        setInterval(createSparkle, 500);
+    </script>
+</body>
+</html>
